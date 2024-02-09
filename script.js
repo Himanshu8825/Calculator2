@@ -1,10 +1,11 @@
 const numbers = document.querySelectorAll(".numbers");
-const result = document.querySelector(".result span"); // Changed to target the span element
-const signs = document.querySelectorAll(".item3.sign"); // Corrected selector
-const equal = document.querySelector(".equals"); // Corrected selector
+const result = document.querySelector(".result span");
+const signs = document.querySelectorAll(".item3.sign");
+const equal = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
 const negative = document.querySelector(".negative");
-const percent = document.querySelector(".persent"); // Corrected spelling
+const percent = document.querySelector(".persent");
+const comma = document.querySelector(".coma");
 
 let firstValue = "";
 let secondValue = "";
@@ -89,10 +90,24 @@ percent.addEventListener("click", () => {
   result.innerHTML = resultValue;
 });
 
-clear.addEventListener("click", () => {
-  result.textContent = "0"; // Reset the result display to "0"
+comma.addEventListener("click", () => {
+  if (sign === "") {
+    if (!firstValue.includes(".")) {
+      // Check if the decimal point is already present
+      firstValue += ".";
+      result.textContent = firstValue;
+    }
+  } else {
+    if (!secondValue.includes(".")) {
+      // Check if the decimal point is already present
+      secondValue += ".";
+      result.textContent = secondValue;
+    }
+  }
+});
 
-  // Reset all values
+clear.addEventListener("click", () => {
+  result.textContent = "0";
   firstValue = "";
   secondValue = "";
   sign = "";

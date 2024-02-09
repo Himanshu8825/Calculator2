@@ -7,23 +7,24 @@
 html,
 body,
 #fullheight {
-  min-height: 100% !important;
-  height: 100%;
+  min-height: 100vh;
   background-color: #212121;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .main-container {
-  height: 100%;
-  background-color: #212121;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .container {
-  width: 35%;
-  height: 70;
+  width: 25%;
+  max-width: 600px; /* Adjust this value as needed */
+  margin: auto;
 }
 
 .result {
@@ -31,13 +32,12 @@ body,
   justify-content: flex-end;
   align-items: flex-end;
   color: white;
-  height: 39%;
+  height: 20%;
 }
 
 .result span {
-  margin-right: 60px;
-  font-size: 210px;
-  justify-self: flex-end;
+  margin-right: 20px; /* Adjust as needed */
+  font-size: 3rem;
 }
 
 .buttons {
@@ -46,7 +46,8 @@ body,
   background-color: #212121;
   display: grid;
   gap: 15px;
-  grid-template-columns: 25% 25% 25% 25%;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  grid-template-columns: repeat(4, 1fr); /* Equal width columns */
 }
 
 .item {
@@ -54,19 +55,29 @@ body,
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 100px;
-  border-radius: 100%;
-  width: 170px;
-  height: 170px;
-  padding: 10px;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 100%;
+  padding: 15px; /* Adjust as needed */
   cursor: pointer;
-  align-self: center;
-  justify-self: center;
+}
+
+#itemZero {
+  width: 90%;
+  border-radius: 50px;
+  background-color: #a5a5a5;
+  height: 70px;
+  grid-column: span 2;
+  border: none;
 }
 
 .persent {
   background-color: #a5a5a5;
   border: none;
+  color: black;
+}
+.negative,
+.clear {
   color: black;
 }
 
@@ -79,7 +90,6 @@ body,
   background-color: #ff9f0a;
   border: none;
 }
-
 .numbers,
 .coma {
   background-color: #a5a5a5;
@@ -91,15 +101,6 @@ body,
   color: black;
 }
 
-.itemZero {
-  background-color: #a5a5a5;
-  width: 330px;
-  height: 150px;
-  border-radius: 135px;
-  grid-column: span 2;
-  border: none;
-}
-
 .selectedSign {
   background-color: white;
   color: #ff9f0a;
@@ -107,17 +108,4 @@ body,
 
 .changedStyle {
   font-size: 10px;
-}
-
-/* Media Query for all sizes */
-@media screen and (max-width: 768px) {
-  .main-container {
-    padding: 20px;
-  }
-
-  .container {
-    width: 70%;
-  }
-
-  /* Add more specific styling for smaller screens as needed */
 }
